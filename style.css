@@ -6,6 +6,7 @@ body{
     background-color: #1E201E;
     background-image: url("hack.jpg");
     background-size: cover;
+    height: 100vh;
 
 }
 .main_box{

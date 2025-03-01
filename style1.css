@@ -9,6 +9,7 @@ body{
     color: #092102;
     top:70px;
     font-size: 30px;
+    height: 100vh;
 }
 .but{
     position: absolute;

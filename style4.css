@@ -1,6 +1,7 @@
 body{
     background-image: url("cover1.png");
     background-size: cover;
+    height: 100vh;
 }
 video{
     position: absolute;
