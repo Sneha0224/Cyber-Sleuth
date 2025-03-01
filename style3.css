@@ -1,0 +1,89 @@
+body{
+    background-image: url("hack.jpg");
+    background-size: cover;
+}
+.card{
+    background-color:#88ba88;
+}
+/* .next{
+    display: grid;
+    grid-column: repeat(4,1fr);
+    grid-row: repeat(3,1fr);
+}
+.one{
+    background-color: pink;
+    grid-template-columns: 1/2;
+}
+.two{
+    background-color: blue;
+    grid-template-columns: 2/3;
+}
+.three{
+    background-color: yellow;
+    grid-template-columns: 3/4;
+}
+.four{
+    background-color: red;
+}
+.five{
+    background-color: blueviolet;
+} */
+
+.next {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 20px; /* Spacing between items */
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    position:fixed;
+    top: 20px;
+    left: 200px;
+}
+.btn{
+    background-color: #45220a;
+    border: black;
+    
+}
+.btn:hover{
+    box-shadow: 0px 0px 10px rgb(90, 10, 10);
+    background-color: #45220a;
+}
+.card {
+    background-color: #41644A;
+    color: #062309;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 8px;
+}
+.one{
+    left: 50px;
+}
+.three{
+    right: 50px;
+}
+/* Center the last two cards */
+.four {
+    grid-column: 1/3;
+    left: 250px; /* Puts the fourth card in the center column */
+}
+
+.five {
+    grid-column: 3/4;
+    right: 250px; /* Puts the fifth card slightly to the right */
+}
+
+.card img {
+    width: 100%;      /* Makes the image take full width of the card */
+    height: 200px;    /* Set a fixed height */
+    object-fit: cover; /* Ensures images don’t stretch or get distorted */
+    border-radius: 8px; /* Optional: Adds rounded corners for better aesthetics */
+}

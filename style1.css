@@ -1,0 +1,37 @@
+body{
+    background-image: url("hack.jpg");
+    background-size: cover;
+}
+.head{
+    position: absolute;
+    left: 600px;
+    text-align: center;
+    color: #092102;
+    top:70px;
+    font-size: 30px;
+}
+.but{
+    position: absolute;
+    left: 650px;
+    display: flex;
+    flex-direction: column;
+    top:250px;
+
+
+}
+.but button{
+    font-size: 40px;
+    margin: 15px;
+    color:#697565;
+    background-color:#092102;
+    margin: 15px;
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(4, 63, 4);
+    animation:big 1s ease-in 0.5s infinite ;
+}
+@keyframes big {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }

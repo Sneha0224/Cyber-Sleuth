@@ -1,0 +1,119 @@
+body{
+    background-image: url("cover1.png");
+    background-size: cover;
+}
+video{
+    position: absolute;
+    height:80%;
+    width:65%;
+    top: 50px;
+    left:20px;
+}
+
+.card {
+    position: fixed;
+    top: 50px;
+    right:70px;
+    height: 80%;
+    width: 25%;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:repeat(2,1fr);
+    gap: 20px;
+    place-items:center;
+}
+
+/* Default Button Styling */
+.clue-btn {
+    display: block;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Default Image Styling (Hidden) */
+.clue-image {
+    display: none;
+    width: 100%; /* Adjust as needed */
+    height: 100%;
+}
+
+/* Hide Button & Show Image when Checkbox is Checked */
+#check1:checked ~ .clue-btn, 
+#check2:checked ~ .clue-btn, 
+#check3:checked ~ .clue-btn, 
+#check4:checked ~ .clue-btn {
+    display: none;
+}
+
+#check1:checked ~ .clue-image, 
+#check2:checked ~ .clue-image, 
+#check3:checked ~ .clue-image, 
+#check4:checked ~ .clue-image {
+    display: block;
+}
+.input-container{
+    color:rgb(14, 122, 10);
+    font-weight: bold;
+    position: fixed;
+    bottom: 40px;
+    left: 500px;
+    font-size: 30px;
+}
+#text{
+   
+    width: 250px;  /* Adjust width */
+    height: 25px;  /* Adjust height */
+    font-size: 16px; /* Bigger text */
+    padding: 10px; /* Adds space inside */
+}
+#result{
+    position: fixed;
+    left:1200px;
+    bottom:20px;
+    font-size: 20px;
+}
+/* Hide clue buttons initially */
+.clue-btn {
+    display: block; /* Initially visible */
+    font-size: 40px;
+    background-color:  rgb(169, 66, 66);
+}
+
+/* Info badge styling */
+#info-badge {
+    position: fixed;
+    right: 20px;  /* Adjust to place it near the lock icon */
+    top: 50px;  /* Adjust according to favicon placement */
+    width: 250px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Badge heading */
+#info-badge h3 {
+    margin-top: 0;
+    color: #ffcc00;
+    font-size: 16px;
+}
+.btn{
+    font-size: 20px;
+    padding: 5px;
+    background-color:green
+}
+.btn-one{
+    background-color: red;
+}
+
+

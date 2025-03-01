@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\Users\Admin\Pictures\Screenshots\lock.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style4.css">
+    <title>Cyber-Sleuth</title>
+    <style>
+        body{
+            background-image:url("cover5.jpg");
+            background-size:cover;
+       }
+    </style>
+</head>
+<body>
+    <video src="virus.mp4" controls></video>
+
+    <div class="card">
+        <!-- Clue 01 -->
+        <div class="one">
+            <input type="checkbox" id="check1" hidden onchange="useClue('check1')" />
+            <label for="check1" class="clue-btn">Clue 01</label>
+            <img src="clue5.jpg" class="clue-image" alt="Clue 1">
+        </div>
+
+        <!-- Clue 02 -->
+        <div class="two">
+            <input type="checkbox" id="check2" hidden onchange="useClue('check2')" />
+            <label for="check2" class="clue-btn">Clue 02</label>
+            <img src="clue7.jpg" class="clue-image" alt="Clue 2">
+        </div>
+
+        <!-- Clue 03 -->
+        <div class="three">
+            <input type="checkbox" id="check3" hidden onchange="useClue('check3')" />
+            <label for="check3" class="clue-btn">Clue 03</label>
+            <img src="clue8.jpg" class="clue-image" alt="Clue 3">
+        </div>
+
+        <!-- Clue 04 -->
+        <div class="four">
+            <input type="checkbox" id="check4" hidden onchange="useClue('check4')" />
+            <label for="check4" class="clue-btn">Clue 04</label>
+            <img src="clue9.jpg" class="clue-image" alt="Clue 4">
+        </div>
+    </div>
+
+    <div class="input-container">
+        <label for="text">Answer:</label>
+        <input type="text" id="text" placeholder="Type your answer">
+        <button id="submitBtn" onclick="checkAnswer()" class="btn">Submit</button>
+        <button onclick="showAnswer()" class="btn btn-one">Show Answer</button>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+        // Global variables
+        let basePoints = 50; // Max points if no clues are used
+        let cluesUsed = 0; // Count clues opened
+        let answerRevealed = false; // Prevent guessing after showing answer
+
+        // Track clue usage and prevent multiple deductions
+        function useClue(clueId) {
+            let checkbox = document.getElementById(clueId);
+            if (checkbox.checked && !checkbox.disabled) {
+                cluesUsed += 1;
+                checkbox.disabled = true; // Prevent multiple deductions
+            }
+        }
+
+        // Check if answer is correct
+        function checkAnswer() {
+            if (answerRevealed) return; // Prevent guessing after revealing answer
+
+            const correctAnswer = "Malware"; // Correct answer
+            let userInput = document.getElementById("text").value.trim().toLowerCase();
+            let resultElement = document.getElementById("result");
+            let score = basePoints - (cluesUsed * 10); // Calculate score
+
+            if (userInput === correctAnswer) {
+                resultElement.innerHTML = `✅ Correct! You've cracked the code. <br> 🎯 Score: ${score} points`;
+                resultElement.style.color = "green";
+                setTimeout(() => window.location.href = "index2.html", 2000); // Redirect in 2 sec
+            } else {
+                resultElement.innerHTML = "❌ Incorrect. Try again!";
+                resultElement.style.color = "red";
+            }
+        }
+
+        // Show the correct answer and disable further input
+        function showAnswer() {
+            answerRevealed = true;
+            let resultElement = document.getElementById("result");
+            resultElement.innerHTML = `🔍 The correct answer is: <strong>Phishing</strong> <br> ❌ Score: 0 points`;
+            resultElement.style.color = "blue";
+
+            document.getElementById("text").disabled = true; // Disable input
+            document.getElementById("submitBtn").disabled = true; // Disable submit button
+
+            // Hide all clue buttons
+            document.querySelectorAll(".clue-btn").forEach(btn => btn.style.display = "none");
+
+            // Check if info badge already exists
+            let existingBadge = document.getElementById("info-badge");
+            if (!existingBadge) {
+                // Create badge for phishing info
+                let badge = document.createElement("div");
+                badge.id = "info-badge";
+                badge.className = "info"; // Use CSS class for styling
+                badge.innerHTML = `
+                    <h3>🦠 Malware Alert!</h3>
+                    <p>Malware (malicious software) is designed to harm, exploit, or steal data from a device.</p>
+                    <p>🔹 Common types: Viruses, Trojans, Ransomware, Spyware.</p>
+                    <p>🔹 Avoid downloading unknown files.</p>
+                    <p>🔹 Keep your system & antivirus updated.</p>
+                        `;
+
+                // Append badge to the body
+                document.body.appendChild(badge);
+            }
+        }
+    </script>
+</body>
+</html>
